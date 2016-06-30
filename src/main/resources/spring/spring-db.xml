@@ -34,12 +34,14 @@
           p:dataSource-ref="dataSource"
           p:packagesToScan="ru.javawebinar.**.model">
         <!--p:persistenceUnitName="persistenceUnit">-->
+        
 
         <property name="jpaPropertyMap">
             <map>
                 <entry key="#{T(org.hibernate.cfg.AvailableSettings).FORMAT_SQL}" value="${hibernate.format_sql}"/>
                 <entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_SQL_COMMENTS}" value="${hibernate.use_sql_comments}"/>
                 <!--<entry key="#{T(org.hibernate.cfg.AvailableSettings).HBM2DDL_AUTO}" value="${hibernate.hbm2ddl.auto}"/>-->
+                <entry key="#{T(org.hibernate.cfg.AvailableSettings).CURRENT_SESSION_CONTEXT_CLASS}" value="thread"/>
             </map>
         </property>
 
@@ -55,6 +57,8 @@
     <!-- Transaction manager for a single JPA EntityManagerFactory (alternative to JTA) -->
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
           p:entityManagerFactory-ref="entityManagerFactory"/>
+    
+    
 
     <!--
         <context:component-scan base-package="ru.javawebinar.**.repository.jdbc"/>

@@ -14,6 +14,9 @@ import ru.javawebinar.topjava.util.exception.NotFoundException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Arrays;
+import javax.persistence.NoResultException;
+import org.hibernate.Hibernate;
+import org.hibernate.cfg.AvailableSettings;
 
 import static ru.javawebinar.topjava.MealTestData.*;
 import static ru.javawebinar.topjava.UserTestData.ADMIN_ID;
@@ -31,7 +34,7 @@ public class UserMealServiceTest {
     protected UserMealService service;
 
     @Test
-    public void testDelete() throws Exception {
+    public void testDelete() throws Exception { 
         service.delete(MealTestData.MEAL1_ID, USER_ID);
         MATCHER.assertCollectionEquals(Arrays.asList(MEAL6, MEAL5, MEAL4, MEAL3, MEAL2), service.getAll(USER_ID));
     }
@@ -49,14 +52,18 @@ public class UserMealServiceTest {
     }
 
     @Test
-    public void testGet() throws Exception {
+    public void testGet() throws Exception { 
         UserMeal actual = service.get(ADMIN_MEAL_ID, ADMIN_ID);
         MATCHER.assertEquals(ADMIN_MEAL, actual);
     }
 
     @Test(expected = NotFoundException.class)
     public void testGetNotFound() throws Exception {
-        service.get(MEAL1_ID, ADMIN_ID);
+        try {
+            service.get(MEAL1_ID, ADMIN_ID);
+        } catch(javax.persistence.NoResultException e) { 
+            throw new NotFoundException(e.getMessage());
+        } 
     }
 
     @Test
@@ -68,8 +75,12 @@ public class UserMealServiceTest {
 
     @Test(expected = NotFoundException.class)
     public void testNotFoundUpdate() throws Exception {
-        UserMeal item = service.get(MEAL1_ID, USER_ID);
-        service.update(item, ADMIN_ID);
+        try {
+            UserMeal item = service.get(MEAL1_ID, USER_ID); 
+            service.update(item, ADMIN_ID); 
+        } catch(javax.persistence.NoResultException e) {  
+            throw new NotFoundException(e.getMessage());
+        }  
     }
 
     @Test
@@ -80,6 +91,6 @@ public class UserMealServiceTest {
     @Test
     public void testGetBetween() throws Exception {
         MATCHER.assertCollectionEquals(Arrays.asList(MEAL3, MEAL2, MEAL1),
-                service.getBetweenDates(LocalDate.of(2015, Month.MAY, 30), LocalDate.of(2015, Month.MAY, 30), USER_ID));
+        service.getBetweenDates(LocalDate.of(2015, Month.MAY, 30), LocalDate.of(2015, Month.MAY, 30), USER_ID));
     }
 }

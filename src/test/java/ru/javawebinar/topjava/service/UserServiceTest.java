@@ -51,6 +51,7 @@ public class UserServiceTest {
 
     @Test(expected = NotFoundException.class)
     public void testNotFoundDelete() throws Exception {
+        System.out.println(service);
         service.delete(1);
     }
 
@@ -79,10 +80,10 @@ public class UserServiceTest {
 
     @Test
     public void testUpdate() throws Exception {
-        TestUser updated = new TestUser(USER);
-        updated.setName("UpdatedName");
-        updated.setCaloriesPerDay(330);
-        service.update(updated.asUser());
-        MATCHER.assertEquals(updated, service.get(USER_ID));
+       TestUser updated = new TestUser(USER);
+       updated.setName("UpdatedName");
+       updated.setCaloriesPerDay(330);
+       service.update(updated.asUser());
+       MATCHER.assertEquals(updated, service.get(USER_ID));
     }
 }

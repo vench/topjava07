@@ -1,0 +1,7 @@
+2016-06-29 08:20:17,712 WARN  [DefaultSoapUICore] Missing folder [/home/vench/ext] for external libraries
+2016-06-29 08:20:17,832 INFO  [DefaultSoapUICore] initialized soapui-settings from [/home/vench/soapui-settings.xml]
+2016-06-29 08:20:18,111 INFO  [WorkspaceImpl] Loading workspace from [/home/vench/intellij-soapui-workspace.xml]
+2016-06-29 08:22:36,835 INFO  [WorkspaceImpl] Saved workspace to [/home/vench/intellij-soapui-workspace.xml]
+2016-06-29 08:22:36,850 INFO  [DefaultSoapUICore] Settings saved to [/home/vench/soapui-settings.xml]
+2016-06-29 08:30:48,543 INFO  [WorkspaceImpl] Saved workspace to [/home/vench/intellij-soapui-workspace.xml]
+2016-06-29 08:30:48,544 INFO  [DefaultSoapUICore] Settings saved to [/home/vench/soapui-settings.xml]

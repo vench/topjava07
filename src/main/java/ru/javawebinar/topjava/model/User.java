@@ -11,6 +11,8 @@ import javax.validation.constraints.Digits;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.Set;
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
 
 /**
  * User: gkislin

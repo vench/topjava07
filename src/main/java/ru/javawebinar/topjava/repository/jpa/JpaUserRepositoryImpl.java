@@ -5,9 +5,9 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.UserRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManager; 
 import java.util.List;
+import javax.persistence.PersistenceContext;
 
 /**
  * User: gkislin
