@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.context.annotation.Profile;
 
 /**
  * User: gkisline
@@ -19,6 +20,7 @@ import java.util.List;
 
 @Repository
 @Transactional(readOnly = true)
+//@Profile("jpa")
 public class JpaUserMealRepositoryImpl implements UserMealRepository {
 
     @PersistenceContext

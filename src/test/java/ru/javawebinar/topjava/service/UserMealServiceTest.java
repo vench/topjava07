@@ -100,7 +100,7 @@ public class UserMealServiceTest {
     public void testNotFoundUpdate() throws Exception {
         UserMeal item = service.get(MEAL1_ID, USER_ID);
         thrown.expect(NotFoundException.class);
-        thrown.expectMessage("Not found entity with id=" + MEAL1_ID);
+        thrown.expectMessage("Error access: " + ADMIN_ID);
         service.update(item, ADMIN_ID);
     }
 

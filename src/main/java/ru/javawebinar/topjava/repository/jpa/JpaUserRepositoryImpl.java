@@ -8,6 +8,7 @@ import ru.javawebinar.topjava.repository.UserRepository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import org.springframework.context.annotation.Profile;
 
 /**
  * User: gkislin
@@ -15,6 +16,7 @@ import java.util.List;
  */
 @Repository
 @Transactional(readOnly = true)
+//@Profile("jpa")
 public class JpaUserRepositoryImpl implements UserRepository {
 
 /*

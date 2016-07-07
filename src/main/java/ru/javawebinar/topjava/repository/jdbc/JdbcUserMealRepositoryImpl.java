@@ -15,6 +15,7 @@ import ru.javawebinar.topjava.repository.UserMealRepository;
 import javax.sql.DataSource;
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.context.annotation.Profile;
 
 /**
  * User: gkislin
@@ -22,6 +23,7 @@ import java.util.List;
  */
 
 @Repository
+//@Profile("jdbc")
 public class JdbcUserMealRepositoryImpl implements UserMealRepository {
 
     private static final RowMapper<UserMeal> ROW_MAPPER = BeanPropertyRowMapper.newInstance(UserMeal.class);

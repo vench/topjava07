@@ -57,6 +57,10 @@ public class User extends NamedEntity {
 
     public User() {
     }
+    
+    public User(Integer id) {
+       super(id, "");   
+    }
 
     public User(User u) {
         this(u.getId(), u.getName(), u.getEmail(), u.getPassword(), u.getCaloriesPerDay(), u.isEnabled(), u.getRoles());
